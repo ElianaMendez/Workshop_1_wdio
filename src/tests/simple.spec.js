@@ -1,6 +1,10 @@
+const DashboardPage = require('../pom/pages/dashboard.page.js');
+
 describe("Doctor's page", () => {
+    let dashboardPage;
     beforeEach(async () => {
-        await browser.url('https://ej2.syncfusion.com/showcase/angular/appointmentplanner/#/dashboard');
+        dashboardPage = new DashboardPage();
+        await dashboardPage.open();
     })
 
     it('Check page title', async () => {
@@ -22,7 +26,7 @@ describe("Doctor's page", () => {
         //Click on add new doctor btn
         await $('.specialization-types button.e-control').click();
         //Wait for visibility of modal menu
-        await $('.e-dlg-header').waitForDisplayed();
+        await $('#dialog_757320498_0_title').waitForDisplayed();
 
         //Set value in the required fields
         await $('[name=Name]').setValue('John Doe');
@@ -34,7 +38,7 @@ describe("Doctor's page", () => {
         await $('.e-footer-content button.e-primary').click();
 
         //Validations
-        await expect($('.e-dlg-header')).not.toBeDisplayed();
+        await expect($('#dialog_757320498_0_title')).not.toBeDisplayed();
 
         await expect($('#Specialist_8').$('.name')).toHaveText('Dr. John Doe');
         await expect($('#Specialist_8').$('.education')).toHaveText('Doctor', { ignoreCase: true });
