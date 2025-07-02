@@ -1,7 +1,9 @@
-class AddDoctorComponent {
+const BaseComponent = require("../common/base.component");
 
-    get rootEl() {
-        return $('#dialog_757320498_0_title');
+class AddDoctorComponent extends BaseComponent {
+
+    constructor(){
+        super('#dialog_757320498_0_title');
     }
 
 }

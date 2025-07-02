@@ -1,8 +1,9 @@
-class ListHeaderComponent {
+const BaseComponent = require("../common/base.component");
 
-    get rootEl(){
-        return $('.specialization-types');
+class ListHeaderComponent extends BaseComponent {
 
+    constructor() {
+        super('.specialization-types');
     }
 
     get addNewDoctorBtn() {
